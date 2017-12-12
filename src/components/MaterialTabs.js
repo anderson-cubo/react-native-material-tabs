@@ -34,6 +34,8 @@ export default class MaterialTabs extends React.Component<Props, State> {
     scrollable: PropTypes.bool,
     items: PropTypes.arrayOf(PropTypes.string).isRequired,
     onChange: PropTypes.func.isRequired,
+    uppercase: PropTypes.bool,
+    tabTextStyle: PropTypes.object
   };
 
   static defaultProps = {
@@ -156,6 +158,8 @@ export default class MaterialTabs extends React.Component<Props, State> {
                     ? this.state.tabWidth
                     : this.state.barWidth * 0.4
                 }
+                uppercase={this.props.uppercase}
+                tabTextStyle={this.props.tabTextStyle}
                 inActiveTextColor={this.props.inactiveTextColor}
               />
             ))}
