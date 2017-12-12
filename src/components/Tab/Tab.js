@@ -10,6 +10,8 @@ type TabProps = {
   activeTextColor: string,
   inActiveTextColor: string,
   active?: boolean,
+  uppercase?: boolean,
+  tabTextStyle: object,
   onPress?: () => void,
 };
 
@@ -21,13 +23,15 @@ const Tab = ({
   inActiveTextColor,
   tabWidth,
   stretch,
+  uppercase,
+  tabTextStyle
 }: TabProps) => {
   const color = active ? activeTextColor : inActiveTextColor;
 
   return (
     <TabButton onPress={onPress} tabWidth={tabWidth} stretch={stretch}>
       <TabBody>
-        <TabText color={color}>{text.toUpperCase()}</TabText>
+        <TabText style={tabTextStyle} color={color}>{uppercase === false ? text : text.toUpperCase()}</TabText>
       </TabBody>
     </TabButton>
   );
